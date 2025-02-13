@@ -1,10 +1,18 @@
+@font-face {
+    font-family: Ostrich Sans Heavy;
+    src: url("../fonts/ostrichsans-heavy.otf") format("opentype");
+}
+
 html, body{
     height: 100vh;
     height: 100dvh;
     width: 100vw;
     font-size: 1rem;
     font-weight: 400;
+    font-family: Ostrich Sans Heavy;
 }
+
+
 
 * {
     margin: 0;
