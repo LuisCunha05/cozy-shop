@@ -8,8 +8,8 @@
  * @param {string} imageUrl
  * @constructor
  */
-export function CardProduto(id, name, price, rate, rateCount, imageUrl ) {
-    console.log( 'rate: ', rate);
+export function CardProduto(id, name, price, rate, rateCount, imageUrl) {
+    const starClass = 10 * Math.floor(rate) + ((10 * rate) % 10 >= 5 ? 5 : 0)
 
     return `
         <div class="product-card">
@@ -17,13 +17,13 @@ export function CardProduto(id, name, price, rate, rateCount, imageUrl ) {
             <p class="product-name">${name}</p>
             <div class="price-review">
                 <div class="product-rating">
-                    <p style="background: linear-gradient(90deg, #FFD600 ${(100 * rate)/5}%, #989898 ${(100 * rate)/5}%);" class="star">★★★★★</p>
+                    <p class="card_estrela_texto estrela_${starClass}">★★★★★</p>
                     <span class="review-count">(${rateCount})</span>
                 </div>
                 <div class="product-price">R$ ${price}</div>
             </div>
             <div class="product-buttons">
-                <button onclick="adicionarFavorito('${id}')" class="button favorite-button">Adicionar aos Favoritos</button>
+                <button onclick="removerFavorito('${id}');listarFavoritos();" class="button favorite-button">Remover dos Favoritos</button>
                 <button class="button buy-button">Comprar</button>
             </div>
         </div>

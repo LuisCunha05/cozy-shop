@@ -80,15 +80,18 @@ const adicionarFavorito = (id) => {
  */
 const removerFavorito = (id) => {
     const favoritos = visualizarFavorito()
+    console.log('before: ',favoritos)
 
-    if(!favoritos.includes(id)) return
+    if(!(favoritos.includes(id))) return
+
 
     favoritos.splice(favoritos.indexOf(id), 1)
+    console.log('After: ',favoritos)
 
     setFavorito(favoritos)
 }
 
-const listarFavoritos = async (id) => {
+const listarFavoritos = async () => {
     const elemento = document.getElementById('lista_favoritos')
     const idFavoritos = visualizarFavorito()
 
@@ -112,3 +115,8 @@ const listarFavoritos = async (id) => {
 
 }
 listarFavoritos()
+
+window.listarFavoritos = listarFavoritos;
+window.removerFavorito = removerFavorito;
+window.adicionarFavorito = adicionarFavorito;
+window.adicionarFavorito = adicionarFavorito;
