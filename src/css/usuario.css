@@ -1,0 +1,64 @@
+form {
+    max-width: 600px;
+    margin: 0px auto;
+    padding: 20px;
+    background-color: var(--dark-secondary);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.containerInput {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--primary);
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--dark-terceary);
+    border-radius: 5px;
+    background-color: var(--dark-terceary);
+    color: white;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+input:disabled {
+    background-color: var(--dark-primary);
+    color: #888;
+    cursor: not-allowed;
+}
+
+input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.ctaProdutos {
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    width: 100%;
+    background-color: var(--primary);
+    color: white;
+}
+
+.button:hover {
+    background-color: var(--secondary);
+}
