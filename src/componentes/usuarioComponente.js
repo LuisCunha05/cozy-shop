@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param {{street: string}} address 
+ * @returns 
+ */
 const usuarioComponente = ({email, username, password, name, address, phone}) => {
     return `
         <form name="infoUsuario">
@@ -11,8 +16,8 @@ const usuarioComponente = ({email, username, password, name, address, phone}) =>
             </div>
             <div class="containerInput">
                 <label for="nome">Nome: </label>
-                <input type="text" id="nome" name="primeiroNome" value=${name.firstname} disabled>
-                <input type="text" name="ultimoNome" value=${name.lastname}>
+                <input type="text" id="primeiroNome" name="primeiroNome" value=${name.firstname} disabled>
+                <input type="text" id="segundoNome" name="ultimoNome" value=${name.lastname}>
             </div>
             <div class="containerInput">
                 <label for="usuario">Usuario: </label>
@@ -28,7 +33,7 @@ const usuarioComponente = ({email, username, password, name, address, phone}) =>
             </div>
             <div class="containerInput">
                 <label for="rua">Rua: </label>
-                <input type="rua" name="rua" id="rua" value=${address.street}>
+                <input type="rua" name="rua" id="rua" value="${address.street.split(' ').map(item => {return item.charAt(0).toUpperCase() + item.substring(1)}).join(' ')}">
             </div>
             <div class="containerInput">
                 <label for="ruaNumero">Rua Número: </label>
@@ -39,7 +44,7 @@ const usuarioComponente = ({email, username, password, name, address, phone}) =>
                 <input type="zipcode" name="zipcode" id="zipcode" value=${address.zipcode}>
             </div>
             <div class="ctaProdutos">
-                <input type="submit" value="Atualizar">
+                <button type="button" id="updateButton">Update User</button>
             </div>
         </form>`;
 };
