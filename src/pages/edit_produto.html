@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cozy Shop</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/edit_produto.css">
+</head>
+<body class="main_container">
+  <button id="button_add">Adicionar produto</button>
+  <form class="adicionar_prod_forms" id="forms_add" method="post">
+    <label for="nomeProduto">Nome do produto</label>
+    <input type="text" name="nome" id="nomeProduto">
+    <label for="descricao">Descrição</label>
+    <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
+    <label for="imagem">Imagem</label>
+    <input type="file" name="imagem" id="imagemProduto">
+    <label for="preco">Preço</label>
+    <input type="number" name="preco" id="preco">
+    <label for="categoria">Categoria</label>
+    <select name="categoria" id="select_categoria">
+      <option disabled selected>Selecione uma categoria</option>
+    </select>
+    <button id="add_produto_button">Salvar</button>
+  </form>
+  <button id="button_update">Atualizar produto</button>
+  <form class="update_prod_forms" id="forms_update">
+    <label for="id">Informe o Id do produto</label>
+    <input type="number" name="id" id="id">
+    <button id="update_produto_button">Enviar</button>
+  </form>
+  <div id="produto_selecionado">
+    
+  </div>
+  <script type="module" src="../js/edit_produto.js"></script>
+</body>
+</html>
