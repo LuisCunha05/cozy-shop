@@ -3,19 +3,42 @@
     src: url("../fonts/ostrichsans-heavy.otf") format("opentype");
 }
 
+:root {
+    /* Cores principais*/
+    --primary: #34B38A;
+    --secondary: #4ECCA3;
+    --terceary: #76D7B8;
+    --destructive: #c54c56;
+    --dark-primary:#0E1013;
+    --dark-secondary: #232931;
+    --dark-terceary: #38424F;
+}
+
 html, body{
     height: 100vh;
     height: 100dvh;
     width: 100vw;
-    font-size: 1rem;
-    font-weight: 400;
-    font-family: Ostrich Sans Heavy , sans-serif;
 }
-
-
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: Ostrich Sans Heavy , sans-serif;
+    letter-spacing: 1px;
+}
+
+.button {
+    display: inline-block;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    width: 100%;
 }

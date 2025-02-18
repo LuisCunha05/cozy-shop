@@ -40,8 +40,6 @@ const listarProdutos = async (produtos) => {
     }
 }
 
-
-
 /**
  * Coloca o array dentro dos favoritos
  * @param {string[]} arr 
@@ -109,7 +107,7 @@ const listarFavoritos = async () => {
         return
     }
 
-    elemento.innerHTML = listaFavoritos.map(({id, title, price, image, rating }) => { return CardProduto( id, title, price, rating.rate, rating.count, image) }).join('\n')
+    elemento.innerHTML = listaFavoritos.map(({id, title, price, image, rating }) => { return CardProduto( id, title, price, rating.rate, rating.count, image, true) }).join('\n')
 
 }
 listarFavoritos()
