@@ -37,10 +37,10 @@ function getUpdatedUserDataAndUpdate() {
 
     // Check if any field is empty
     if (
-        !email || !username || !password || !firstname || !lastname ||
+        !email || !password || !firstname || !lastname ||
         !city || !street || !number || !zipcode || !phone
     ) {
-        alert('All fields are required. Please fill out all fields.');
+        alert('Algum campo está vazio, por favor preencher todos os campos.');
         return; // Stop the function if any field is empty
     }
 
