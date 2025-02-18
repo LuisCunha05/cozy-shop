@@ -23,23 +23,47 @@ function updateUser(id, updatedUserData) {
 
 
 function getUpdatedUserDataAndUpdate() {
+    // Get all the input values
+    const email = document.getElementById('email').value;
+    const username = document.getElementById('usuario').value;
+    const password = document.getElementById('senha').value;
+    const firstname = document.getElementById('primeiroNome').value;
+    const lastname = document.getElementById('segundoNome').value;
+    const city = document.getElementById('cidade').value;
+    const street = document.getElementById('rua').value;
+    const number = document.getElementById('ruaNumero').value;
+    const zipcode = document.getElementById('zipcode').value;
+    const phone = document.getElementById('telefone').value;
+
+    // Check if any field is empty
+    if (
+        !email || !username || !password || !firstname || !lastname ||
+        !city || !street || !number || !zipcode || !phone
+    ) {
+        alert('All fields are required. Please fill out all fields.');
+        return; // Stop the function if any field is empty
+    }
+
+    // Create the updatedUserData object
     const updatedUserData = {
-        email: document.getElementById('email').value,
-        username: document.getElementById('usuario').value,
-        password: document.getElementById('senha').value,
+        email: email,
+        username: username,
+        password: password,
         name: {
-            firstname: document.getElementById('primeiroNome').value,
-            lastname: document.getElementById('segundoNome').value
+            firstname: firstname,
+            lastname: lastname
         },
         address: {
-            city: document.getElementById('cidade').value,
-            street: document.getElementById('rua').value,
-            number: parseInt(document.getElementById('ruaNumero').value),
-            zipcode: document.getElementById('zipcode').value
+            city: city,
+            street: street,
+            number: parseInt(number),
+            zipcode: zipcode
         },
-        phone: document.getElementById('telefone').value
+        phone: phone
     };
 
+    // Call the updateUser function with the ID and the created data
     updateUser(userId, updatedUserData);
 }
+
 document.getElementById('updateButton').addEventListener('click', getUpdatedUserDataAndUpdate);
