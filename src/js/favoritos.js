@@ -25,6 +25,18 @@ const visualizarProduto = (id) => {
     return fetch(`https://fakestoreapi.com/products/${id}`)
 }
 
+const visualizarCategoria = async () => {
+    const response =  await fetch('https://fakestoreapi.com/products/categories')
+    const json = await response.json()
+    return json
+}
+
+const listarFiltoCategoria = () => {
+    const elemento = document.getElementById('lista_favoritos')
+
+    
+}
+
 /**
  * Fetches todos os produtos e retorna uma lista
  *@param {string[]} produtos Lista de IDs dos produtos
@@ -70,6 +82,7 @@ const adicionarFavorito = (id) => {
     favoritos.push(id)
 
     setFavorito(favoritos)
+    listarFavoritos()
 }
 
 /**
@@ -89,6 +102,9 @@ const removerFavorito = (id) => {
 
 const listarFavoritos = async () => {
     const elemento = document.getElementById('lista_favoritos')
+
+    if(elemento === null)return
+
     const idFavoritos = visualizarFavorito()
 
     if(!idFavoritos.length) return
@@ -107,11 +123,26 @@ const listarFavoritos = async () => {
         return
     }
 
-    elemento.innerHTML = listaFavoritos.map(({id, title, price, image, rating }) => { return CardProduto( id, title, price, rating.rate, rating.count, image, true) }).join('\n')
+    elemento.innerHTML = listaFavoritos.map(({id, title, price, image, rating }) => { return CardProduto( id, title, price, rating.rate, rating.count, image) }).join('\n')
 
 }
+
+const filtrarProdutos = () => {
+    const filter = document.getElementById('productFilter')
+
+    if(filter === null) return
+
+    
+}
+
+
 listarFavoritos()
+
+export { visualizarFavorito, adicionarFavorito, removerFavorito, listarFavoritos}
 
 window.listarFavoritos = listarFavoritos;
 window.removerFavorito = removerFavorito;
 window.adicionarFavorito = adicionarFavorito;
+window.visualizarFavorito = visualizarFavorito;
+
+// console.log( await listarProdutos(['4']))
