@@ -80,13 +80,11 @@ const adicionarFavorito = (id) => {
  */
 const removerFavorito = (id) => {
     const favoritos = visualizarFavorito()
-    console.log('before: ',favoritos)
 
     if(!(favoritos.includes(id))) return
 
 
     favoritos.splice(favoritos.indexOf(id), 1)
-    console.log('After: ',favoritos)
 
     setFavorito(favoritos)
 }
@@ -118,5 +116,4 @@ listarFavoritos()
 
 window.listarFavoritos = listarFavoritos;
 window.removerFavorito = removerFavorito;
-window.adicionarFavorito = adicionarFavorito;
 window.adicionarFavorito = adicionarFavorito;
