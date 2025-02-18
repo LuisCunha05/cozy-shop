@@ -25,7 +25,7 @@ export function CardProduto(id, name, price, rate, rateCount, imageUrl, remover 
             </div>
             <div class="product-buttons">
                 <button onclick="removerFavorito('${id}');listarFavoritos();" class="button ${remover ? 'remove-button' : 'favorite-button'}">${remover ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos'}</button>
-                <button class="button buy-button">Comprar</button>
+                <button class="button buy-button" onclick="adicionarCarrinho('${id}')">Adicionar ao Carrinho</button>
             </div>
         </div>
     `;
