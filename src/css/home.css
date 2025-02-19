@@ -1,8 +1,13 @@
+#corpao{
+    background-image: linear-gradient(to bottom, #34b38a, black);
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #34b38a;
+    
 }
 
 header {
