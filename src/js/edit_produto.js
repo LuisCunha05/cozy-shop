@@ -1,4 +1,4 @@
-import {CardProduto} from '../componentes/card_produto.js';
+import {updateProduto} from '../componentes/update_produto.js';
 
 const button_add = document.getElementById('button_add');
 const button_update = document.getElementById('button_update');
@@ -56,7 +56,7 @@ async function updateProduto() {
 
   try {
     let produto = await fetch(`https://fakestoreapi.com/products/${id.value}`).then(res => res.json());
-    produto_selecionado.innerHTML = CardProduto( produto.id, produto.title, produto.price, produto.rating.rate, produto.rating.count, produto.image, true);
+    produto_selecionado.innerHTML = updateProduto(produto.title, produto.price, produto.imageUrl);
   }
   catch {
     alert('Produto não encontrado');
