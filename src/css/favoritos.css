@@ -1,0 +1,10 @@
+
+#lista_favoritos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+    padding: 0 10%;
+}

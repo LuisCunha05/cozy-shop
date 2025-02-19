@@ -1,1 +1,0 @@
-"exemplo, pode remover"
