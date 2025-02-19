@@ -14,12 +14,13 @@
         <p>Favoritos</p>
 
         <div class="product-filter">
-            <label for="cars">Filtar por Categoria</label>
-            <select class="select-product-filter" name="card-filter" id="productFilter">
+            <label for="productFilter">Filtar por Categoria</label>
+            <select class="select-product-filter" onchange="filtrarProdutos(this.value)" name="card-filter" id="productFilter">
             </select>
         </div>
         <div id="lista_favoritos">
         </div>
+        <script type="module" src="../js/filtrar_produtos.js"></script>
         <script type="module" src="../js/favoritos.js"></script>
     </body>
 </html>

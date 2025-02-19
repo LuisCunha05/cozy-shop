@@ -25,17 +25,7 @@ const visualizarProduto = (id) => {
     return fetch(`https://fakestoreapi.com/products/${id}`)
 }
 
-const visualizarCategoria = async () => {
-    const response =  await fetch('https://fakestoreapi.com/products/categories')
-    const json = await response.json()
-    return json
-}
 
-const listarFiltoCategoria = () => {
-    const elemento = document.getElementById('lista_favoritos')
-
-    
-}
 
 /**
  * Fetches todos os produtos e retorna uma lista
@@ -123,20 +113,35 @@ const listarFavoritos = async () => {
         return
     }
 
-    elemento.innerHTML = listaFavoritos.map(({id, title, price, image, rating }) => { return CardProduto( id, title, price, rating.rate, rating.count, image) }).join('\n')
+    elemento.innerHTML = listaFavoritos.map(({id, title, price, image, rating, category }) => { return CardProduto( id, title, price, rating.rate, rating.count, image, category) }).join('\n')
 
 }
 
-const filtrarProdutos = () => {
-    const filter = document.getElementById('productFilter')
-
-    if(filter === null) return
-
-    
+/**
+ * Retorna a lista de categorias da API
+ * @returns {Promise<string[]>}
+ */
+const visualizarCategoria = async () => {
+    const response =  await fetch('https://fakestoreapi.com/products/categories')
+    const json = await response.json()
+    return json
 }
+
+const listarFiltoCategoria = async () => {
+    const elemento = document.getElementById('productFilter')
+
+    if(elemento === null)return
+
+    const categorias = await visualizarCategoria()
+
+    elemento.innerHTML = `<option value="none">Nenhum</option>` + categorias.map(item => `<option value="${item}">${item.toUpperCase()}</option>`).join('\n')
+}
+
+
 
 
 listarFavoritos()
+listarFiltoCategoria()
 
 export { visualizarFavorito, adicionarFavorito, removerFavorito, listarFavoritos}
 
