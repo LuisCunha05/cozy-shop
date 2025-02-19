@@ -6,27 +6,29 @@
     <link rel="stylesheet" href="../css/produto.css">
     <link rel="stylesheet" href="../css/base.css">
     <title>Produto</title>
-
-    <style>
-        
-    </style>
 </head>
 <body>
 
     <h1>Detalhes do Produto</h1>
 
     <div id="product-container">
-        <div id="product-images" class="product-gallery">
-        </div>
+        <div id="product-images" class="product-gallery"></div>
         <div id="product-info">
             <h2 id="product-name"></h2>
             <p id="product-description"></p>
             <p id="product-price"></p>
-            <button id="add-to-favorites" >Adicionar aos Favoritos</button>
+            <button id="add-to-favorites">Adicionar aos Favoritos</button>
             <button id="go-to-cart">Ir para o Carrinho</button>
         </div>
     </div>
-<script src="../js/produto.js"></script>
 
+ 
+    <div id="product-id-input" style="display: none;">
+        <label for="productId">Digite o ID do Produto:</label>
+        <input type="text" id="productId" placeholder="ID do Produto" />
+        <button id="submitProductId">Buscar Produto</button>
+    </div>
+
+    <script src="../js/produto.js"></script>
 </body>
 </html>
