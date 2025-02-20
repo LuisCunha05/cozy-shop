@@ -84,7 +84,7 @@ async function deleteProduto() {
   document.addEventListener('submit', async (event) => {
   document.getElementById('cancelar_deletar_produto').addEventListener('click', () => {
     alert('Cancelado');
-    location.reload();
+    return;
   });
     if (event.target && event.target.id === 'DeleteForms') {
         event.preventDefault();
@@ -94,6 +94,7 @@ async function deleteProduto() {
         
         if (deleteProduto) {
           alert('Produto deletado com sucesso');
+          location.reload();
         }
         else {
           alert('Erro, produto não encontrado');
