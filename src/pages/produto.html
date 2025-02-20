@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/produto.css">
     <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/produto.css">
     <title>Produto</title>
 </head>
 <body>
-
+    <div id="header"></div>
     <h1>Detalhes do Produto</h1>
-
     <div id="product-container">
         <div id="product-images" class="product-gallery"></div>
         <div id="product-info">
@@ -21,14 +20,13 @@
             <button id="go-to-cart">Ir para o Carrinho</button>
         </div>
     </div>
-
- 
-    <div id="product-id-input" style="display: none;">
+    <div id="product-id-input">
         <label for="productId">Digite o ID do Produto:</label>
         <input type="text" id="productId" placeholder="ID do Produto" />
         <button id="submitProductId">Buscar Produto</button>
     </div>
-
     <script src="../js/produto.js"></script>
+    <script type="module" src="../js/base.js"></script>
+    <script type="module" src="../js/favoritos.js"></script>
 </body>
 </html>
