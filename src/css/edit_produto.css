@@ -1,0 +1,53 @@
+.main_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 5%;
+  width: 100%;
+  height: 100%;
+}
+
+.adicionar_prod_forms {
+  display: none;
+  flex-direction: column;
+}
+
+.update_prod_forms {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card {
+  padding: 2%;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  width: 30%;
+  border-radius: 10px;
+}
+
+.product-image {
+  width: 60%;
+}
+
+.product-buttons, .product-rating {
+  display: none;
+}
+
+.update_prod_forms {
+  display: none;
+}
+
+#UpdateForms {
+  display: flex;
+  flex-direction: column;
+}
+
+.imagemProduto {
+  align-self: center;
+  width: 10%;
+}
+
+#forms_delete {
+  display: none;
+  flex-direction: column;
+}

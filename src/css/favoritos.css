@@ -1,10 +1,18 @@
 
 #lista_favoritos{
     display: flex;
-    align-items: center;
+    align-items: start;
     flex-wrap: wrap;
     gap: 16px;
     width: 100%;
+    max-height: 100%;
+    overflow-y: scroll;
+    flex-grow: 1;
+    scrollbar-width: 0;
+    
+}
+#lista_favoritos::-webkit-scrollbar {
+    display: none;
 }
 
 .favorito-container{
@@ -12,10 +20,13 @@
     flex-direction: column;
     gap: 16px;
     width: 80%;
-    margin: 0 auto;
+    margin: 16px auto;
     padding: 24px 16px;
     background-color: var(--primary);
     flex-grow: 1;
+    border-radius: 10px;
+    max-height: 100%;
+    overflow: hidden;
 }
 
 .product-filter{
@@ -26,6 +37,7 @@
 }
 
 body{
+    max-height: 100vh;
     background-color: var(--dark-primary);
     display: flex;
     flex-direction: column;
