@@ -95,8 +95,8 @@ async function deleteProduto() {
     alert('produto não encontrado');
   }
 
-    document.addEventListener('submit', async (event) => {
-        const cancelar_deletar_produto = document.getElementById('cancelar_deletar_produto');
+  document.addEventListener('submit', async (event) => {
+  const cancelar_deletar_produto = document.getElementById('cancelar_deletar_produto');
 
   if(cancelar_deletar_produto.onclick) {
     alert('Cancelado');
@@ -104,20 +104,20 @@ async function deleteProduto() {
   
   else {
     if (event.target && event.target.id === 'DeleteForms') {
-
       event.preventDefault();
       let deleteProduto = await fetch(`https://fakestoreapi.com/products/${id.value}`, {
         method:"DELETE"
       }).then(res => res.json())
+      
       if (deleteProduto) {
         alert('Produto deletado com sucesso');
       }
       else {
         alert('Erro, produto não encontrado');
       }
-      }
-    })
+    }
   }
+  })
 }
 
 async function updateProduto() {
