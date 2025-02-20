@@ -4,10 +4,10 @@ import {deleteProdutoComponent} from '../componentes/delete_produto.js';
 const button_add = document.getElementById('button_add');
 const button_update = document.getElementById('button_update');
 const button_delete = document.getElementById('button_delete');
+
 const forms_add = document.getElementById('forms_add');
 const forms_update = document.getElementById('forms_update');
 const forms_delete = document.getElementById('forms_delete');
-
 
 button_add.addEventListener('click', () => {
   forms_add.style.display = forms_add.style.display == 'flex' ? 'none' : 'flex';
@@ -27,10 +27,9 @@ forms_delete.addEventListener('submit', validarDelete);
 
 function validarUpdate(event) {
   event.preventDefault();
-  
   const id = document.getElementById('id');
 
-  if (id.value == '' || id.value == null) {
+  if (!id) {
     alert('Informações faltantes, por favor verifique o formulário');
   }
   else {
@@ -40,10 +39,9 @@ function validarUpdate(event) {
 
 async function validarDelete(event) {
   event.preventDefault();
-  
   const id = document.getElementById('id_delete_forms');
 
-  if (id.value == '' || id.value == null) {
+  if (!id.value) {
     alert('Informações faltantes, por favor verifique o formulário');
   }
   else {
@@ -143,29 +141,13 @@ async function updateProduto() {
       if (updateProduto) {
         location.reload();
         alert('Produto Atualizado com Sucesso!');
-
-      } else {
-        location.reload();
-        alert('Erro ao atualizar o produto.');
       }
     } catch (error) {
-      console.error("Erro ao atualizar produto:", error);
+      alert('Erro ao atualizar o produto.', error);
+      location.reload();
     }
   }
 });
-}
-
-async function getCategorias() {
-  const select = document.getElementById('select_categoria');
-  const categorias = await fetch('https://fakestoreapi.com/products/categories').then(res=>res.json());
-
-  categorias.forEach(Option => {
-    let option = document.createElement('option')
-    option.value = Option.replace(' ', '_').replace("'", '')
-    option.innerText = Option
-
-    select.appendChild(option);
-  });
 }
 
 async function addProduto() {
@@ -195,6 +177,19 @@ async function addProduto() {
   else {
     alert('Erro, produto não adicionado');
   }
+}
+
+async function getCategorias() {
+  const select = document.getElementById('select_categoria');
+  const categorias = await fetch('https://fakestoreapi.com/products/categories').then(res=>res.json());
+
+  categorias.forEach(Option => {
+    let option = document.createElement('option')
+    option.value = Option.replace(' ', '_').replace("'", '')
+    option.innerText = Option
+
+    select.appendChild(option);
+  });
 }
 
 getCategorias()
