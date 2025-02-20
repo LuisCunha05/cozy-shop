@@ -8,38 +8,24 @@ const forms_add = document.getElementById('forms_add');
 const forms_update = document.getElementById('forms_update');
 const forms_delete = document.getElementById('forms_delete');
 
+
 button_add.addEventListener('click', () => {
-  if(forms_add.style.display == 'flex'){
-    forms_add.style.display = 'none'
-  }
-  else {
-    forms_add.style.display = 'flex';
-  }
+  forms_add.style.display = forms_add.style.display == 'flex' ? 'none' : 'flex';
 });
 
 button_update.addEventListener('click', () => {
-  if(forms_update.style.display == 'flex'){
-    forms_update.style.display = 'none'
-  }
-  else {
-    forms_update.style.display = 'flex';
-  }
+  forms_update.style.display = forms_update.style.display == 'flex' ? 'none' : 'flex';
 });
 
 button_delete.addEventListener('click', () => {
-  if(forms_delete.style.display == 'flex') {
-    forms_delete.style.display = 'none';
-  }
-  else {
-    forms_delete.style.display = 'flex';
-  }
+  forms_delete.style.display = forms_delete.style.display == 'flex' ? 'none' : 'flex';
 })
 
 forms_add.addEventListener('submit', validarForms);
 forms_update.addEventListener('submit', validarUpdate);
 forms_delete.addEventListener('submit', validarDelete);
 
-async function validarUpdate(event) {
+function validarUpdate(event) {
   event.preventDefault();
   
   const id = document.getElementById('id');
@@ -48,7 +34,7 @@ async function validarUpdate(event) {
     alert('Informações faltantes, por favor verifique o formulário');
   }
   else {
-    await updateProduto();
+   updateProduto();
   }
 }
 
@@ -74,7 +60,7 @@ function validarForms(event) {
   const categoriaForms = document.getElementById('select_categoria');
   const precoForms = document.getElementById('preco');
 
-  if ((nomeForms.value == null || nomeForms.value == '') || (descForms.value == null || descForms.value == '') || (imgForms.value == null || imgForms.value == "") || (categoriaForms.value == null || categoriaForms.value == '' ) || (precoForms.value == null || precoForms.value == '')) {
+  if (!nomeForms.value || !descForms.value || !imgForms.value || !categoriaForms.value || isNaN(precoForms.value)) {
     alert('Informações faltantes, por favor verifique o formulário');
   }
   else {
@@ -96,27 +82,23 @@ async function deleteProduto() {
   }
 
   document.addEventListener('submit', async (event) => {
-  const cancelar_deletar_produto = document.getElementById('cancelar_deletar_produto');
-
-  if(cancelar_deletar_produto.onclick) {
+  document.getElementById('cancelar_deletar_produto').addEventListener('click', () => {
     alert('Cancelado');
-  }
-  
-  else {
+    location.reload();
+  });
     if (event.target && event.target.id === 'DeleteForms') {
-      event.preventDefault();
-      let deleteProduto = await fetch(`https://fakestoreapi.com/products/${id.value}`, {
-        method:"DELETE"
-      }).then(res => res.json())
-      
-      if (deleteProduto) {
-        alert('Produto deletado com sucesso');
+        event.preventDefault();
+        let deleteProduto = await fetch(`https://fakestoreapi.com/products/${id.value}`, {
+          method:"DELETE"
+        }).then(res => res.json())
+        
+        if (deleteProduto) {
+          alert('Produto deletado com sucesso');
+        }
+        else {
+          alert('Erro, produto não encontrado');
+        }
       }
-      else {
-        alert('Erro, produto não encontrado');
-      }
-    }
-  }
   })
 }
 
@@ -136,10 +118,10 @@ async function updateProduto() {
   document.addEventListener('submit', async (event) => {
   if (event.target && event.target.id === 'UpdateForms') {
     event.preventDefault();
-    const nome = document.getElementById('title').value.trim();
+    const nome = document.getElementById('title').value;
     const price = parseFloat(document.getElementById('price').value);
-    const img = document.getElementById('img').value.trim();
-    const desc = document.getElementById('desc').value.trim();
+    const img = document.getElementById('img').value;
+    const desc = document.getElementById('desc').value;
 
     if (!nome || isNaN(price) || !desc || !img) {
       alert("Preencha todos os campos corretamente.");
@@ -158,13 +140,11 @@ async function updateProduto() {
       }).then(res => res.json());
 
       if (updateProduto) {
-        const forms = document.getElementById('forms_update');
-        const UpdateForms = document.getElementById('UpdateForms');
-        UpdateForms.style.display = 'none';
-        forms.style.display = 'none';
+        location.reload();
         alert('Produto Atualizado com Sucesso!');
 
       } else {
+        location.reload();
         alert('Erro ao atualizar o produto.');
       }
     } catch (error) {
@@ -173,8 +153,6 @@ async function updateProduto() {
   }
 });
 }
-
-
 
 async function getCategorias() {
   const select = document.getElementById('select_categoria');
@@ -189,34 +167,29 @@ async function getCategorias() {
   });
 }
 
-async function addProduto(event) {
-  const nomeForms = document.getElementById('nomeProduto');
-  const descForms = document.getElementById('descricao');
-  const imgForms = document.getElementById('imagemProduto');
-  const categoriaForms = document.getElementById('select_categoria');
-  const precoForms = document.getElementById('preco');
-
-  const nome = nomeForms.value;
-  const descricao = descForms.value;
-  const img = imgForms.value;
-  const categoria = categoriaForms.value;
-  const preco = precoForms.value;
+async function addProduto() {
+  const nomeForms = document.getElementById('nomeProduto').value;
+  const descForms = document.getElementById('descricao').value;
+  const imgForms = document.getElementById('imagemProduto').value;
+  const categoriaForms = document.getElementById('select_categoria').value;
+  const precoForms = document.getElementById('preco').value;
 
   let res = await fetch('https://fakestoreapi.com/products',{
     method:"POST",
     body:JSON.stringify(
       {
-        title: nome,
-        price: parseFloat(preco).toFixed(2),
-        description: descricao,
-        image: img,
-        category: categoria
+        title: nomeForms,
+        price: parseFloat(precoForms).toFixed(2),
+        description: descForms,
+        image: imgForms,
+        category: categoriaForms
       }
     )
   })
 
   if (res) {
     alert('Produto adicionando com sucesso');
+    location.reload();
   }
   else {
     alert('Erro, produto não adicionado');

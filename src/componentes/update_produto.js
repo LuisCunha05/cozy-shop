@@ -19,7 +19,7 @@ export function updateProdutoComponent({id, title, price, image, description}) {
     <label for="img">Preço do produto</label>
     <input type="text" name="img" id="img" value="${image}">
     <label for="desc">Descrição</label>
-    <textarea name="desc" id="desc" value="${description}" cols="30" rows="10"></textarea>
+    <textarea name="desc" id="desc" cols="30" rows="10">${description}</textarea>
     <button name="update_produto">Salvar</button>
   </form>`
 }
