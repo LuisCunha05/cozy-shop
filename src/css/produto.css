@@ -1,20 +1,7 @@
 
-:root {
-    --primary: #34B38A;
-    --secondary: #4ECCA3;
-    --terceary: #76D7B8;
-    --destructive: #c54c56;
-    --dark-primary: #0E1013;
-    --dark-secondary: #232931;
-    --dark-terceary: #38424F;
-}
-
-
 body {
     font-family: 'Arial', sans-serif;
-    overflow: hidden;
     margin: 0;
-    padding: auto;
     background-color: var(--dark-primary);
     color: white;
 }
@@ -37,7 +24,7 @@ h1 {
     background-color: var(--dark-secondary);
     border-radius: 8px;
     margin: 30px auto;
-    max-width: 1200px;
+    max-width: 80%;
 }
 
 
@@ -119,10 +106,11 @@ button:hover {
 
 #product-id-input {
     text-align: center;
-    margin-top: 40px;
+    margin: 32px auto 0;
     background-color: var(--dark-terceary);
     padding: 20px;
     border-radius: 8px;
+    max-width: 80%;
     display: none;
 }
 

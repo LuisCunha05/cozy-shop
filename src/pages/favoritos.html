@@ -12,10 +12,17 @@
     </head>
     <body>
         <div id="header"></div>
-        
-        <p style="font-size: 7rem; letter-spacing: 10px;">Favoritos</p>
-        <div id="lista_favoritos">
+
+        <div class="favorito-container">
+            <div class="product-filter">
+                <label for="productFilter">Filtar por Categoria</label>
+                <select class="select-product-filter" onchange="filtrarProdutos(this.value)" name="card-filter" id="productFilter">
+                </select>
+            </div>
+            <div id="lista_favoritos">
+            </div>
         </div>
+        <script type="module" src="../js/filtrar_produtos.js"></script>
         <script type="module" src="../js/favoritos.js"></script>
         <script type="module" src="../js/base.js"></script>
     </body>
