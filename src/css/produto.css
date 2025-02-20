@@ -1,0 +1,138 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: var(--dark-primary);
+    color: white;
+}
+
+
+h1 {
+    text-align: center;
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+#product-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px;
+    gap: 30px;
+    background-color: var(--dark-secondary);
+    border-radius: 8px;
+    margin: 30px auto;
+    max-width: 80%;
+}
+
+
+#product-images {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#product-images img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#product-info {
+    flex: 1;
+    color: var(--dark-terceary);
+    padding: 20px;
+}
+
+#product-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+#product-description {
+    font-size: 1.1rem;
+    color: var(--terceary);
+    margin-bottom: 20px;
+}
+
+#product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+
+button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: var(--secondary);
+}
+
+
+#add-to-favorites {
+    background-color: var(--secondary);
+}
+
+#add-to-favorites:hover {
+    background-color: var(--terceary);
+}
+
+#go-to-cart {
+    background-color: var(--destructive);
+}
+
+#go-to-cart:hover {
+    background-color: #e03e4e;
+}
+
+
+#product-id-input {
+    text-align: center;
+    margin: 32px auto 0;
+    background-color: var(--dark-terceary);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 80%;
+    display: none;
+}
+
+#product-id-input input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--terceary);
+    width: 80%;
+    margin-right: 10px;
+}
+
+#product-id-input button {
+    padding: 10px 20px;
+    background-color: var(--primary);
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+}
+
+#product-id-input button:hover {
+    background-color: var(--secondary);
+}

@@ -1,0 +1,32 @@
+
+#lista_favoritos{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+}
+
+.favorito-container{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 24px 16px;
+    background-color: var(--primary);
+    flex-grow: 1;
+}
+
+.product-filter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:8px;
+}
+
+body{
+    background-color: var(--dark-primary);
+    display: flex;
+    flex-direction: column;
+}

@@ -3,19 +3,85 @@
     src: url("../fonts/ostrichsans-heavy.otf") format("opentype");
 }
 
-html, body{
-    height: 100vh;
-    height: 100dvh;
-    width: 100vw;
-    font-size: 1rem;
-    font-weight: 400;
-    font-family: Ostrich Sans Heavy;
+:root {
+    /* Cores principais*/
+    --primary: #34B38A;
+    --secondary: #4ECCA3;
+    --terceary: #76D7B8;
+    --quarteary: #2A8C6F;
+    --destructive: #c54c56;
+    --dark-primary:#0E1013;
+    --dark-secondary: #232931;
+    --dark-terceary: #38424F;
 }
 
-
+html, body{
+    min-height: 100vh;
+    min-height: 100dvh;
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: Ostrich Sans Heavy , sans-serif;
+    letter-spacing: 1px;
+}
+
+.button {
+    display: inline-block;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--quarteary);
+    padding: 8px 16px;
+    min-height: 80px;
+    gap: 8px;
+}
+
+.header-image {
+    height: 100%; 
+    width: auto; 
+    max-width: 200px; 
+}
+
+.header-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: end;
+    gap: 8px;
+}
+
+.header-button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 8px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px; 
+    text-align: center;
+    width: clamp(128px, 10%, 180px);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.header-button:hover {
+    background-color: var(--terceary);
 }
