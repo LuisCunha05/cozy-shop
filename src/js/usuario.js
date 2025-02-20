@@ -1,7 +1,7 @@
 import usuarioComponente from "../componentes/usuarioComponente.js";
 
-//const userId = sessionStorage.getItem("userId");
-const userId = "2"
+const userId = sessionStorage.getItem("userId");
+//const userId = "2"
 await fetch(`https://fakestoreapi.com/users/${userId}`)
 .then(res=>res.json())
 .then(json => {

@@ -4,12 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../images/icon.ico">
-    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <!-- <link rel="stylesheet" href="../css/base.css"> -->
     <title>Login</title>
 </head>
 <body>
-    <div id="header"></div>
-    
+        <div class="class-container-geral">
+            <div id="header"></div>
+            <div id="container-fundo-login">
+                <div id="container-base-fundo-login">
+                    <div id="item1-logo-base-fundo-login">
+                        <img src="../images/logo-branca.svg">
+                    </div>
+                    <div id="item2-logo-base-fundo-login">
+                        <form id="login">
+                            <label><h4>Nome de Usuário:</h4><br>
+                                <input type="text" id="nomeUser" name="nomeUser">
+                            </label><br>
+                    
+                            <label><h4>Senha:</h4><br>
+                                <input type="text" id="senhaUser" name="senhaUser">
+                            </label><br>
+                    
+                            <button type="submit" id="botaoSubmit" class="botao-legal">Logar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="../js/login.js"></script>
     <script type="module" src="../js/base.js"></script>
 </body>
 </html>
