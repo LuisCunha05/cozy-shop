@@ -66,7 +66,7 @@ function pegarInput() {
                     const sessionResult = await sessionUsuario(usuario, token);
 
                     if (sessionResult) {
-                        window.location.href = 'index.html';
+                        window.location.href = '../../index.html';
                     } else {
                         alert('Falha ao configurar a sessão. Tente novamente.');
                     }
