@@ -1,22 +1,25 @@
 
 /**
- * 
+ * @param {number} id
  * @param {string} title
  * @param {number} price
- * @param {string} imageUrl
+ * @param {string} image
  * @returns
  */
 
 
-export function updateProduto(title, price, imageUrl) {
-  return `<form name="UpdateForms">
-    <img src="${imageUrl}">
+export function updateProdutoComponent({id, title, price, image, description}) {
+  return `<form name="UpdateForms" id="UpdateForms">
+    <input type="number" hidden value="${id}">
+    <img src="${image}" class="imagemProduto">
     <label for="title">Nome do produto</label>
-    <input type="text" name="title" value="${title}">
+    <input type="text" name="title" id="title" value="${title}">
     <label for="price">Preço do produto</label>
-    <input type="number" name="price" value="${price}">
+    <input type="number" name="price" id="price" value="${price}">
     <label for="img">Preço do produto</label>
-    <input type="text" name="img" value="${imageUrl}">
+    <input type="text" name="img" id="img" value="${image}">
+    <label for="desc">Descrição</label>
+    <textarea name="desc" id="desc" value="${description}" cols="30" rows="10"></textarea>
     <button name="update_produto">Salvar</button>
   </form>`
 }

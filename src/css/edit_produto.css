@@ -32,3 +32,22 @@
 .product-buttons, .product-rating {
   display: none;
 }
+
+.update_prod_forms {
+  display: none;
+}
+
+#UpdateForms {
+  display: flex;
+  flex-direction: column;
+}
+
+.imagemProduto {
+  align-self: center;
+  width: 10%;
+}
+
+#forms_delete {
+  display: none;
+  flex-direction: column;
+}
