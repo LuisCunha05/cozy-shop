@@ -43,7 +43,7 @@ async function loadProducts(category = "") {
     products.forEach((product) => {
       const productHtml = `
         <div class="produto">
-          <a href="./produto.html?id=${product.id}">
+          <a href="./src/pages/produto.html?id=${product.id}">
             <div class="imgProduto">
               <img src="${product.image}" alt="${product.title}">
             </div>

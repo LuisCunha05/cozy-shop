@@ -1,7 +1,5 @@
-
 const urlParams = new URLSearchParams(window.location.search);
 let productId = urlParams.get('id');
-console.log(productId);
 
 
 async function fetchProductData(productId) {
@@ -26,7 +24,7 @@ async function fetchProductData(productId) {
 
         
         document.getElementById('add-to-favorites').addEventListener('click', () => {
-            adicionarFavorito(product.id);
+            adicionarFavorito(`${product.id}`);
         });
 
         

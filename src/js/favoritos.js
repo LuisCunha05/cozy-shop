@@ -88,6 +88,7 @@ const removerFavorito = (id) => {
     favoritos.splice(favoritos.indexOf(id), 1)
 
     setFavorito(favoritos)
+    listarFavoritos()
 }
 
 const listarFavoritos = async () => {
@@ -105,11 +106,8 @@ const listarFavoritos = async () => {
     let listaFavoritos = await listarProdutos(idFavoritos)
     listaFavoritos = listaFavoritos ?? []
 
-    const noFavoritos = document.createElement('h2')
-    noFavoritos.innerText = 'Sem Favoritos'
-
     if(!listaFavoritos.length){
-        elemento.appendChild(noFavoritos)
+        elemento.innerHTML = 'Sem Favoritos'
         return
     }
 
@@ -149,5 +147,3 @@ window.listarFavoritos = listarFavoritos;
 window.removerFavorito = removerFavorito;
 window.adicionarFavorito = adicionarFavorito;
 window.visualizarFavorito = visualizarFavorito;
-
-// console.log( await listarProdutos(['4']))
