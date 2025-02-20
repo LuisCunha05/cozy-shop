@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/css/base.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/base.css" />
+    <link rel="stylesheet" href="./src/css/home.css" />
     <title>Cozy Shop</title>
-</head>
-<body>
-    <p style="font-size: 7rem; letter-spacing: 10px;">dspdsadsdoisad</p>
-    <a href="./src/pages/favoritos.html">favoritos</a>
-<script src="./src/js/favoritos.js"></script>
-</body>
+  </head>
+  <body>
+    <div id="header">
+      <header class="header">
+        <img src="./src/images/logo.svg" alt="Logo" class="header-image">
+        <div class="header-buttons">
+          <a href="#" class="header-button">Home</a>
+          <a href="./src/pages/produto.html" class="header-button">Produtos</a>
+          <a href="./src/pages/editar_produto.html" class="header-button">Editar Produtos</a>
+          <a href="./src/pages/usuario.html" class="header-button">Perfil</a>
+          <a href="./src/pages/favoritos.html" class="header-button">Favoritos</a>
+          <a href="./src/pages/carrinho.html" class="header-button">Carrinho</a>
+          <a href="./src/pages/cadastro.html" class="header-button">Cadastro</a>
+          <a href="./src/pages/login.html" class="header-button">Login</a>
+        </div>
+      </header>
+    </div>
+    <div id="corpao">
+      <div class="container">
+
+        <h1>Produtos</h1>
+
+        <div id="category-container"></div>
+
+        <div id="product-list"></div>
+      </div>
+
+      <footer>
+        <img id="footer" src="./src/images/ecommerce-footer.png" alt="" />
+      </footer>
+    </div>
+    <script type="module" src="./src/js/home.js"></script>
+    <script type="module" src="./src/js/base.js"></script>
+    <script type="module" src="./src/js/favoritos.js"></script>
+  </body>
 </html>

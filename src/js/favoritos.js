@@ -25,6 +25,8 @@ const visualizarProduto = (id) => {
     return fetch(`https://fakestoreapi.com/products/${id}`)
 }
 
+
+
 /**
  * Fetches todos os produtos e retorna uma lista
  *@param {string[]} produtos Lista de IDs dos produtos
@@ -70,6 +72,7 @@ const adicionarFavorito = (id) => {
     favoritos.push(id)
 
     setFavorito(favoritos)
+    listarFavoritos()
 }
 
 /**
@@ -85,10 +88,14 @@ const removerFavorito = (id) => {
     favoritos.splice(favoritos.indexOf(id), 1)
 
     setFavorito(favoritos)
+    listarFavoritos()
 }
 
 const listarFavoritos = async () => {
     const elemento = document.getElementById('lista_favoritos')
+
+    if(elemento === null)return
+
     const idFavoritos = visualizarFavorito()
 
     if(!idFavoritos.length) return
@@ -99,19 +106,44 @@ const listarFavoritos = async () => {
     let listaFavoritos = await listarProdutos(idFavoritos)
     listaFavoritos = listaFavoritos ?? []
 
-    const noFavoritos = document.createElement('h2')
-    noFavoritos.innerText = 'Sem Favoritos'
-
     if(!listaFavoritos.length){
-        elemento.appendChild(noFavoritos)
+        elemento.innerHTML = 'Sem Favoritos'
         return
     }
 
-    elemento.innerHTML = listaFavoritos.map(({id, title, price, image, rating }) => { return CardProduto( id, title, price, rating.rate, rating.count, image, true) }).join('\n')
+    elemento.innerHTML = listaFavoritos.map(({id, title, price, image, rating, category }) => { return CardProduto( id, title, price, rating.rate, rating.count, image, category) }).join('\n')
 
 }
+
+/**
+ * Retorna a lista de categorias da API
+ * @returns {Promise<string[]>}
+ */
+const visualizarCategoria = async () => {
+    const response =  await fetch('https://fakestoreapi.com/products/categories')
+    const json = await response.json()
+    return json
+}
+
+const listarFiltoCategoria = async () => {
+    const elemento = document.getElementById('productFilter')
+
+    if(elemento === null)return
+
+    const categorias = await visualizarCategoria()
+
+    elemento.innerHTML = `<option value="none">Nenhum</option>` + categorias.map(item => `<option value="${item}">${item.toUpperCase()}</option>`).join('\n')
+}
+
+
+
+
 listarFavoritos()
+listarFiltoCategoria()
+
+export { visualizarFavorito, adicionarFavorito, removerFavorito, listarFavoritos}
 
 window.listarFavoritos = listarFavoritos;
 window.removerFavorito = removerFavorito;
 window.adicionarFavorito = adicionarFavorito;
+window.visualizarFavorito = visualizarFavorito;
